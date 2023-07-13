@@ -4,6 +4,8 @@ MODDESTDIR = /lib/modules/$(KVER)/kernel/drivers/hid/
 
 obj-m += fn_keys_mod.o
 
+# ccflags-y := $(ccflags-y) -xc -E -v
+
 all:
 	make -C /lib/modules/$(shell uname -r)/build M=$(PWD) modules
 
