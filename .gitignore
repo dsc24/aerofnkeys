@@ -1,0 +1,11 @@
+*.mod.o
+*.mod.c
+*.mod
+*.o
+*.cmd
+*.ko.xz
+*.symvers
+*.order
+.vscode/
+id
+build.sh
