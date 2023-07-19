@@ -91,8 +91,8 @@ static int gigabyte_raw_event(struct hid_device *hdev,
 static const struct hid_device_id gigabyte_devices[] = {
 	// binding to HID_GROUP_GENERIC to let hid-multitouch.c handle the touchpad and trackpoint.
 	{.bus = BUS_USB, .group = HID_GROUP_GENERIC, .vendor = USB_VENDOR_ID_CHUYEN, .product = USB_DEVICE_ID_CHUYEN_16_XE5},
-	{.bus=BUS_USB, .group=HID_GROUP_GENERIC, .vendor=USB_VENDOR_ID_CHUYEN, .product=USB_DEVICE_ID_CHUYEN_7A3B},
-	{.bus=BUS_USB, .group=HID_GROUP_GENERIC, .vendor=USB_VENDOR_ID_CHUYEN, .product=USB_DEVICE_ID_CHUYEN_7A3F}
+	{.bus=BUS_USB, .group=HID_GROUP_GENERIC, .vendor=USB_VENDOR_ID_CHUYEN, .product=USB_DEVICE_ID_CHUYEN_15_SB},
+	{.bus=BUS_USB, .group=HID_GROUP_GENERIC, .vendor=USB_VENDOR_ID_CHUYEN, .product=USB_DEVICE_ID_CHUYEN_15_D}
 };
 // Array of Structs ; hid_device_id is a struct as well.
 

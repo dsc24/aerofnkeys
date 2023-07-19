@@ -2,6 +2,8 @@
 *.mod.c
 *.mod
 *.o
+*.o.d
+*.ko
 *.cmd
 *.ko.xz
 *.symvers
