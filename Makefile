@@ -1,8 +1,8 @@
-MODULE_NAME = fn_keys_mod
+MODULE_NAME = aero_fn_keys
 KVER = $(shell uname -r)
 MODDESTDIR = /lib/modules/$(KVER)/kernel/drivers/hid/
 
-obj-m += fn_keys_mod.o
+obj-m += $(MODULE_NAME).o
 
 # ccflags-y := $(ccflags-y) -xc -E -v
 
