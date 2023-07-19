@@ -21,7 +21,7 @@ Works by intercepting non-HID compliant usages raw and emulating the correct key
   - *(Fedora 34; Kernel 5.13.12; Gnome 40.4)*
     - Brightness Up/Down (**F3/F4**), Volume Mute/Down/Up (**F7/F8/F9**)
   - *(EndeavourOS; Kernel 6.4.3; Plasma 5.27.6 + KWin)*
-    - Sleep (**F1**), Brightness Up/Down (**F3/F4**), Display Mode (**F5**), Screen Lock (**F6**), Volume Mute/Down/Up (**F7/F8/F9**), Airplane Mode/RFKILL (**F11**) and Keyboaard Backlight (**Space**)
+    - Sleep (**F1**), Brightness Up/Down (**F3/F4**), Display Mode (**F5**), Screen Lock (**F6**), Volume Mute/Down/Up (**F7/F8/F9**), Airplane Mode/RFKILL (**F11**) and Keyboard Backlight (**Space**)
       
 - (Function + ) Keys that have do not work as intended but have been rebound to a different function are:
   - **ESC**/Fan Control
@@ -32,6 +32,8 @@ Works by intercepting non-HID compliant usages raw and emulating the correct key
     - F24
       
 - Sleep (**F1**), Display Mode (**F5**), Volume Mute/Down/Up changes(**F7/F8/F9**), and RFKILL/Airplane Mode (**F11**) are all working by default, and would require a different method to rebind.
+
+- Wifi (**F2**) is correctly recognized, but the key I attempt to bind it to (KEY_WWAN) does not seem to work for me. I am unsure why and since RFKILL (**F11**) does work, I am not overly concerned with figuring this out.
 
 - **F10** is special (and not working). It sends data over multiple interfaces. All other FN + Key combinations send data only over interface 002, but from what I can see F10 sends over 002 and 000 (the normal key interface for keys like 's' or '['). This data includes both malformed and correct data, over both interfaces. It also causes data to be sent on key release. Currently I have not figured out how to make this work in any way.
 
