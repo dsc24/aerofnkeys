@@ -18,10 +18,13 @@
 #define USB_VENDOR_ID_CHUYEN		  0x1044
 //15 SB
 #define USB_DEVICE_ID_CHUYEN_15_SB	  0x7a3b
+//15 D (?) (From atomspring PR)
+#define USB_DEVICE_ID_CHUYEN_15_D  0x7a3f
 //16 XE5
 #define USB_DEVICE_ID_CHUYEN_16_XE5   0x7a3a
 
 #define USB_VENDOR_ID_258A		    0x258a
+
 #define USB_DEVICE_ID_258A_6A88		0x6a88
 
 #define USB_VENDOR_ID_3M		    0x0596
