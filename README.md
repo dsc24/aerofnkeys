@@ -45,7 +45,7 @@ _*See notes on F10/Touchpad Toggle_
 # How to Install
 
 ## Recommended DKMS Method
-1. `git clone https://github.com/atomspring/aerofnkeys.git /usr/src/aerofnkeys-1.0`
+1. `git clone https://github.com/dsch24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
 2. `dkms add aerofnkeys/1.0`
 3. `dkms install aerofnkeys/1.0`
 4. `echo aerofnkeys > /etc/modules-load.d/load_aerofnkeys.conf`
@@ -53,17 +53,17 @@ _*See notes on F10/Touchpad Toggle_
 
 
 ## Manual method
-1. `git clone https://github.com/atomspring/aerofnkeys.git /usr/src/aerofnkeys-1.0`
+1. `git clone https://github.com/dsch24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
 2. `cd /usr/src/aerofnkeys-1.0`
 3. `make`
 4. `make install`
 
 # Troubleshooting
 
-If you get an error message when running `modprobe aerofnkeys` which says something along the lines of "exec format error", try clearing out the DKMS built module by running:
+If you get an error message when running `modprobe aero_fn_keys` which says something along the lines of "exec format error", try clearing out the DKMS built module by running:
 1. `dkms remove aerofnkeys/1.0 -k $(uname -r)`
 2. `dkms install aerofnkeys/1.0 -k $(uname -r)`
-3. `modprobe -v aerofnkeys`
+3. `modprobe -v aero_fn_keys`
 
 Inspect the module by running `modinfo` or `file` about the specific kernel's build of aerofnkeys.
 
