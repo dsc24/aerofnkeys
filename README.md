@@ -44,26 +44,47 @@ _*See notes on F10/Touchpad Toggle_
 
 # How to Install
 
-## Recommended DKMS Method
-1. `git clone https://github.com/dsc24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
-2. `dkms add aerofnkeys/1.0`
-3. `dkms install aerofnkeys/1.0`
-4. `echo aerofnkeys > /etc/modules-load.d/load_aerofnkeys.conf`
-5. Reboot & give your backlight keys a go. Enjoy!
+## Recommended DKMS Method (with signing)
+1. `git clone https://github.com/dsc24/aerofnkeys.git`
+2. `cd aerofnkeys`
+3. `make`
+4. `make config`
+5. `sudo make config-root`
+6. `sudo make dkms-install`
+7. Reboot & test out your function keys. Enjoy!
 
 
-## Manual method
-1. `git clone https://github.com/dsc24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
-2. `cd /usr/src/aerofnkeys-1.0`
+## Manual method (no signing)
+1. `git clone https://github.com/dsc24/aerofnkeys.git`
+2. `cd aerofnkeys`
 3. `make`
 4. `make install`
+5. `sudo modprobe aero_fn_keys`
+- You will have to repeat the 5th command after every reboot, and you will have to run the last 3 every time your kernel version changes.
 
 # Troubleshooting
+
+
+Inspect the module by running `modinfo` or `file` about the specific kernel's build of aerofnkeys.
+
 
 If you get an error message when running `modprobe aero_fn_keys` which says something along the lines of "exec format error", try clearing out the DKMS built module by running:
 1. `dkms remove aerofnkeys/1.0 -k $(uname -r)`
 2. `dkms install aerofnkeys/1.0 -k $(uname -r)`
 3. `modprobe -v aero_fn_keys`
 
-Inspect the module by running `modinfo` or `file` about the specific kernel's build of aerofnkeys.
 
+If you have done everything as instructed and seen no errors, yet it still will not work, you can try applying a usbhid.quirks setting.
+This is done by changing your boot parameters. This will differ depending on which bootloader you are using.
+
+For systemd:
+- Find your boot partition/directory. This is usually /boot or /efi (for some dual boot systems). In my case it is /efi, and the rest of the directory structure should be the same.
+1. `cd /efi/loader/entries`
+- Now choose which entry file to modify. In most cases you will have something like `6.4.3-arch1-2-fallback.conf` alongside `6.4.3-arch1-2.conf`.
+- You will want to modify the one that does not mention "fallback" or "backup" or anything like that. In the future if you fail to boot after changing something, the fallback entry will allow you to boot and fix the issue.
+2. Open the desired .conf file and locate the line that begins with `options`
+3. Add `usbhid.quirks=0x1044:0x7a3a:0x0000` at beginning/end of the line, make sure to replace `0x7a3a` with your particular Product ID
+- This should then look something like 
+
+`options   usbhid.quirks=0x1044:0x7a3a:0x0000 ...(the rest of your default parameters)`
+- What this does is ensure the keyboard is not grabbed by the incorrect generic driver which does not support the function keys. If something were to go wrong, you may be left without use of your laptop keyboard (until this line is removed). In this case, a seperate USB keyboard/mouse should continue to work.
