@@ -105,6 +105,6 @@ static struct hid_driver gigabyte_hid_driver = {
 
 module_hid_driver(gigabyte_hid_driver);
 
-MODULE_AUTHOR("Github: Original code by jaytohe, with modifications/additional code by atomspring and dsch24");
+MODULE_AUTHOR("Github: Original code by jaytohe, with modifications/additional code by atomspring and dsc24");
 MODULE_DESCRIPTION("Bare-bones support for certain Gigabyte Aero 15/16/17 model fn-keys");
 MODULE_LICENSE("GPL");

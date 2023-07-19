@@ -45,7 +45,7 @@ _*See notes on F10/Touchpad Toggle_
 # How to Install
 
 ## Recommended DKMS Method
-1. `git clone https://github.com/dsch24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
+1. `git clone https://github.com/dsc24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
 2. `dkms add aerofnkeys/1.0`
 3. `dkms install aerofnkeys/1.0`
 4. `echo aerofnkeys > /etc/modules-load.d/load_aerofnkeys.conf`
@@ -53,7 +53,7 @@ _*See notes on F10/Touchpad Toggle_
 
 
 ## Manual method
-1. `git clone https://github.com/dsch24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
+1. `git clone https://github.com/dsc24/aerofnkeys.git /usr/src/aerofnkeys-1.0`
 2. `cd /usr/src/aerofnkeys-1.0`
 3. `make`
 4. `make install`
